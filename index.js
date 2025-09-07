@@ -2,13 +2,14 @@ import express, {json} from 'express';
 import bodyParser from 'body-parser'; 
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
-
-mongoose.connect('mongodb+srv://meenakshisharma7395_db_user:UPr5vKeuD3OMA3jP@ecommerce.iqmxa0j.mongodb.net/', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
