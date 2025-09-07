@@ -17,8 +17,8 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch(err => console.error('MongoDB connection error:', err));
 
 
-
 import users from "./routes/users.js"
+import items from "./routes/items.js"
 
 app.use(bodyParser.json());
 
@@ -33,5 +33,6 @@ app.get('/',(req,res) => {
   
 // Routes
 app.use('/users', users);
+app.use('/items', items);
 
 app.listen(PORT,()=> console.log(`server runnig on http://localhost:${PORT}`));
