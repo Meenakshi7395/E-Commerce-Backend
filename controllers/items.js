@@ -2,7 +2,7 @@ import Item from "../models/Item.js";
 
 export const createItem = async (req, res) => {
     try {
-      const newItem = new Item(req.body);
+     const newItem = new Item(req.body);
       await newItem.save();
       res.json({"success":true,"message":"Item Added Successfully", item:newItem});
     } catch (error) {

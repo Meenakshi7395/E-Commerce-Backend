@@ -2,13 +2,16 @@ import mongoose from "mongoose";
 
 const categories = ["electronics", "clothing", "books"];
 const itemSchema = new mongoose.Schema({
-   name: { type: String, required: [true, "Item name is required"]},
+    name: { type: String, required: [true, "Item name is required"]},
     description: { type: String},
-    price: { type: Number, required: [true, "Price is required"], min: [0, "Price cannot be negative"]},
+    purchasePrice: { type: Number, required: [true, "PurchasePrice is required"], min: [0, "PurchasePrice cannot be negative"]},
+    salePrice: { type: Number, required: [true, "SalePrice is required"], min: [0, "SalePrice cannot be negative"]},
     category: {type: String, required: [true, "Category is required"], default: "electronics", enum: categories},
     stock: { type: Number, default: 0, min: [0, "Stock cannot be negative"]},
     brand: { type: String },
     ratings: {type: Number, default: 0, min: 0, max: 5},
+    image: { type: String },
+
   },
   { timestamps: true } 
 );
