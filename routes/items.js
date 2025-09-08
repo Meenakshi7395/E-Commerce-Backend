@@ -8,7 +8,6 @@ const router = express.Router();
 
 import { createItem, getAllItems, getItemById, updateItem, deleteItem} from "../controllers/items.js"
 
-// Routes
 router.get('/',authenticateJWT, getAllItems);
 router.post('/', authenticateJWT, createItem);
 router.get('/:id',authenticateJWT, getItemById);
